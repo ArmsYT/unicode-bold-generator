@@ -1,19 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arms | Unicode Bold Generator</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="https://thearms.fr/file/arms" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unicode Style Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Unicode Bold Text Generator</h1>
-        <input type="text" id="inputText" placeholder="Enter your text" oninput="convertText()">
-        <textarea id="outputText" readonly placeholder="Your bold text will appear here"></textarea>
-        <button onclick="copyText()">Copy</button>
-    </div>
-    <script src="script.js"></script>
+  <main class="page-shell">
+    <section class="generator-card">
+      <div class="generator-header">
+        <div class="header-content">
+          <p class="eyebrow">UNICODE TEXT TOOLS</p>
+          <h1>Unicode Style Generator</h1>
+          <p class="subtitle">
+            Transforme ton texte avec plusieurs styles d’écriture et copie le résultat en un clic.
+          </p>
+        </div>
+
+        <a
+          class="creator-mini-card"
+          href="https://armsyt.github.io/string-generator/renderer/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Voir le profil GitHub de Arms"
+        >
+          <img
+            src="https://github.com/ArmsYT.png"
+            alt="Photo de profil de Arms"
+            class="creator-avatar"
+          />
+          <div class="creator-meta">
+            <span class="creator-name">Arms</span>
+            <span class="creator-username">@ArmsYT</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="form-group">
+        <label for="styleSelect">Style d’écriture</label>
+        <select id="styleSelect"></select>
+      </div>
+
+      <div class="form-group">
+        <label for="inputText">Texte</label>
+        <textarea id="inputText" placeholder="Entre ton texte ici...">bienvenue</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="outputText">Résultat</label>
+        <textarea id="outputText" readonly></textarea>
+      </div>
+
+      <button id="copyBtn" type="button">Copier</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

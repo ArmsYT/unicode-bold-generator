@@ -1,70 +1,210 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #121212; /* Fond sombre */
-    color: #f0f0f0;
+:root {
+  --bg: #05060a;
+  --card: rgba(16, 18, 27, 0.92);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+  --field: rgba(255, 255, 255, 0.04);
+  --field-border: rgba(255, 255, 255, 0.1);
 }
 
-.container {
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    background: #1e1e1e; /* Bloc légèrement plus clair */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(130, 18, 18, 0.28), transparent 35%),
+    radial-gradient(circle at bottom, rgba(29, 39, 113, 0.22), transparent 40%),
+    var(--bg);
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.generator-card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.generator-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #fff;
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.05;
+  color: #ffffff;
 }
 
-input, textarea {
-    width: calc(100% - 20px); /* Corrige le dépassement */
-    padding: 12px;
-    font-size: 18px;
-    margin-bottom: 12px;
-    border: none; /* Supprime la bordure */
-    outline: none;
-    background: #2a2a2a; /* Fond sombre */
-    color: #f0f0f0;
-    border-radius: 4px; /* Coins plus discrets */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.subtitle {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-input:focus, textarea:focus {
-    background: #333;
+.creator-mini-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 170px;
+  padding: 12px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.creator-mini-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.creator-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.creator-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.creator-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.creator-username {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+select,
+textarea,
+input {
+  width: 100%;
+  border: 1px solid var(--field-border);
+  background: var(--field);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+select:focus,
+textarea:focus,
+input:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+select option {
+  background: #11131a;
+  color: #ffffff;
 }
 
 textarea {
-    height: 80px;
-    resize: none;
+  min-height: 120px;
+  resize: vertical;
 }
 
-button {
-    padding: 12px;
-    font-size: 16px;
-    background: #f0f0f0; /* Bouton clair */
-    color: #121212; /* Texte sombre */
-    border: none;
-    border-radius: 4px; /* Coins légers */
-    cursor: pointer;
-    width: calc(100% - 20px);
-    font-weight: bold;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: background 0.3s ease, transform 0.2s ease;
+#styleSelect,
+#outputText {
+  font-weight: 400;
 }
 
-button:hover {
-    background: #e0e0e0;
-    transform: scale(1.05);
+#outputText {
+  color: #ffffff;
+}
+
+#copyBtn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 15px 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #05060a;
+  background: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#copyBtn:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
+}
+
+@media (max-width: 700px) {
+  .generator-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .creator-mini-card {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
 }
